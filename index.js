@@ -7,6 +7,15 @@ welcomeMessage();
 const displayWorkoutRoutine = () => {
     const workoutInput = document.querySelector('#workoutInput').value;
     const workoutList = document.querySelector('#workoutList');
+
+    const existingWorkoutRoutine = workoutList.querySelectorAll('li');
+    for (let workout of existingWorkoutRoutine) {
+        if (workout.textContent === workoutInput) {
+            alert('This workout already exists!')
+            return;
+        }
+    }
+
     const newWorkout = document.createElement('li');
     newWorkout.textContent = workoutInput;
     workoutList.appendChild(newWorkout);
